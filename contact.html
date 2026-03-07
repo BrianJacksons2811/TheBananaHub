@@ -15,13 +15,11 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><i class="fas fa-banana"></i> Banana Hub</a>
-                
+                   <a href="index.html" class="logo"><img src="images/logo/Untitled design.png" alt="The Banana Hub Logo"></a>                                
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="testimonials.html">Testimonials</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
@@ -89,38 +87,66 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email Us</h4>
-                                <p>hello@bananahub.com</p>
+                                <p>helloadmin@thebananahub.co.za</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
                 </div>
                 
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xlgwyvwq" method="POST">
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+
+  <div class="form-group">
+    <select name="service" id="serviceSelect" required>
+      <option value="" disabled selected>Service Interested In</option>
+      <option value="web-dev">Website Development & Design</option>
+      <option value="ecommerce">E-commerce Solutions</option>
+      <option value="maintenance">Website Maintenance</option>
+      <option value="branding">Branding & Visual Identity</option>
+      <option value="graphic-design">Graphic Design</option>
+      <option value="digital-marketing">Digital Marketing</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <input type="text" name="subject" id="subjectInput" placeholder="Subject" required>
+  </div>
+
+  <div class="form-group">
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
             </div>
         </div>
+        <div class="contact-item">
+  <i class="fas fa-clock"></i>
+ <div class="footer-top">
+  <div class="footer-hours">
+    <div class="hours-text">
+      <h4>Business Hours</h4>
+      <ul>
+        <li><span>Mon – Fri:</span> 08:00 – 17:00</li>
+        <li><span>Sat:</span> 09:00 – 13:00</li>
+        <li><span>Sun & Public Holidays:</span> Closed</li>
+      </ul>
+      <div class="social-links">
+             <a href="#"><i class="fab fa-facebook"></i></a>
+             <a href="#"><i class="fab fa-instagram"></i></a>
+             <a href="#"><i class="fab fa-linkedin"></i></a>
+     </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <!-- Map Section -->
@@ -141,12 +167,12 @@
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#web-design">Web Design</a></li>
-                        <li><a href="services.html#maintenance">Web Maintenance</a></li>
-                        <li><a href="services.html#ecommerce">E-commerce</a></li>
-                        <li><a href="services.html#graphic-design">Graphic Design</a></li>
-                        <li><a href="services.html#branding">Branding</a></li>
-                        <li><a href="services.html#social-media">Social Media</a></li>
+                        <li><a href="web dev& design.html">Web Design</a></li>
+                        <li><a href="maintenance.html">Web Maintenance</a></li>
+                        <li><a href="E-commerce.html">E-commerce</a></li>
+                        <li><a href="graphic design.html">Graphic Design</a></li>
+                        <li><a href="branding.html">Branding</a></li>
+                        <li><a href="digital marketing.html">Digital Marketing</a></li>
                     </ul>
                 </div>
                 

@@ -8,7 +8,7 @@ const themeToggle = document.getElementById('themeToggle');
 
 // Theme Management
 function initTheme() {
-    // Check for saved theme preference
+
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
@@ -20,7 +20,7 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    // Show notification
+
     showNotification(`${newTheme.charAt(0).toUpperCase() + newTheme.slice(1)} mode activated`, 'info');
 }
 
@@ -38,17 +38,16 @@ if (mobileMenuBtn) {
         navLinks.classList.toggle('active');
         const isActive = navLinks.classList.contains('active');
         
-        // Change icon based on menu state
+
         mobileMenuBtn.innerHTML = isActive 
             ? '<i class="fas fa-times"></i>' 
             : '<i class="fas fa-bars"></i>';
-        
-        // Prevent body scroll when menu is open
+    
         document.body.style.overflow = isActive ? 'hidden' : '';
     });
 }
 
-// Close mobile menu when clicking on a link
+
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -246,3 +245,62 @@ document.addEventListener('click', (e) => {
         }, 300);
     }
 });
+
+// Contact form submission via Formspree + success message
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : "";
+
+    try {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+
+      const formData = new FormData(contactForm);
+
+      const res = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        // ✅ success message
+        const msg = document.createElement("div");
+        msg.className = "notification";
+        msg.textContent = "Hang tight! We’ll revert back to you shortly.";
+        document.body.appendChild(msg);
+
+        contactForm.reset();
+
+        setTimeout(() => msg.remove(), 4000);
+      } else {
+        // ❌ error message
+        const msg = document.createElement("div");
+        msg.className = "notification";
+        msg.textContent = "Oops — something went wrong. Please try again.";
+        document.body.appendChild(msg);
+
+        setTimeout(() => msg.remove(), 4000);
+      }
+    } catch (err) {
+      const msg = document.createElement("div");
+      msg.className = "notification";
+      msg.textContent = "Network error — please check your connection and try again.";
+      document.body.appendChild(msg);
+
+      setTimeout(() => msg.remove(), 4000);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
+  });
+}
